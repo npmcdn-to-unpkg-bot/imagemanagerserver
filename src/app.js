@@ -22,7 +22,11 @@ app.use(compress())
   .options('*', cors())
   .use(cors())
   .use(favicon( path.join(app.get('public'), 'favicon.ico') ))
-  .use('/', serveStatic( app.get('public') ))
+  .use('/files', serveStatic( app.get('files') ))
+  .use('/', serveStatic( app.get('public') ),function(req,res,next){
+      console.log(res.data);
+      app.myVar = req.get('host');
+      next();})
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: true }))
   .configure(hooks())
@@ -30,5 +34,6 @@ app.use(compress())
   .configure(socketio())
   .configure(services)
   .configure(middleware);
+
 
 module.exports = app;

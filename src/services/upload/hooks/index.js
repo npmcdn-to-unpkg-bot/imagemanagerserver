@@ -1,6 +1,6 @@
 'use strict';
 
-const hasFile = require('./has-file');
+const pipeImage = require('./pipe-image');
 
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
@@ -10,7 +10,7 @@ exports.before = {
   all: [],
   find: [],
   get: [],
-  create: [hasFile()],
+  create: [],
   update: [],
   patch: [],
   remove: []
@@ -20,7 +20,7 @@ exports.after = {
   all: [],
   find: [],
   get: [],
-  create: [],
+  create: [pipeImage()],
   update: [],
   patch: [],
   remove: []

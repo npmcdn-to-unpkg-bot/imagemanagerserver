@@ -1,7 +1,5 @@
 'use strict';
 
-const hasFile = require('./has-file');
-
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 
@@ -10,7 +8,7 @@ exports.before = {
   all: [],
   find: [],
   get: [],
-  create: [hasFile()],
+  create: [],
   update: [],
   patch: [],
   remove: []

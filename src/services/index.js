@@ -1,4 +1,6 @@
 'use strict';
+const upload = require('./upload');
+const tag = require('./tag');
 const image = require('./image');
 const message = require('./message');
 const authentication = require('./authentication');
@@ -12,4 +14,6 @@ module.exports = function() {
   app.configure(user);
   app.configure(message);
   app.configure(image);
+  app.configure(tag);
+  app.configure(upload);
 };
