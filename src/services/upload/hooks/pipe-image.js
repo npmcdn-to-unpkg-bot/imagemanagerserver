@@ -11,13 +11,14 @@ module.exports = function(options) {
   options = Object.assign({}, defaults, options);
 
   return function(hook) {
-      const newImage ={
+
+    const newImage ={
       name: hook.data.initialFileName,
       nameOnDisk: hook.result.id,
       size: hook.result.size,
     };
 
-    hook.app.service('images').create(newImage);
+    const returnedImage = hook.app.service('images').create(newImage);
 
     hook.result.name = newImage.name;
     hook.result.path = hook.app.myVar + '/files/' + newImage.nameOnDisk;

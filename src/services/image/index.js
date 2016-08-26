@@ -16,7 +16,7 @@ module.exports = function(){
   let options = {
     Model: db,
     paginate: {
-      default: 5,
+      default: 100,
       max: 25
     }
   };

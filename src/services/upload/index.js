@@ -4,7 +4,7 @@ const hooks = require('./hooks');
 
 const blobService = require('feathers-blob');
 const fs = require('fs-blob-store');
-const blobStorage = fs('/home/mihaimarius/Apps/imagemanagerserver/src/files');
+const blobStorage = fs('/home/mihaimarius/Apps/imagemanagerserver/public/files');
 
 module.exports = function(){
   const app = this;

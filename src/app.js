@@ -24,7 +24,6 @@ app.use(compress())
   .use(favicon( path.join(app.get('public'), 'favicon.ico') ))
   .use('/files', serveStatic( app.get('files') ))
   .use('/', serveStatic( app.get('public') ),function(req,res,next){
-      console.log(res.data);
       app.myVar = req.get('host');
       next();})
   .use(bodyParser.json())
