@@ -29,4 +29,5 @@ node_modules
 
 lib/
 data/
-public/files/
+public/files
+files/

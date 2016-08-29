@@ -12,7 +12,6 @@ module.exports = function(options) {
   options = Object.assign({}, defaults, options);
 
   return function(hook) {
-    console.log('log it',hook);
     if (!hook.data.nameOnDisk) {
     throw new errors.BadRequest(`Invalid request`, {
       errors: [
