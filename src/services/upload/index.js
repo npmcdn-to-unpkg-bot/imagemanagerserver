@@ -4,11 +4,12 @@ const hooks = require('./hooks');
 
 const blobService = require('feathers-blob');
 const fs = require('fs-blob-store');
-const blobStorage = fs('/home/mihaimarius/Apps/imagemanagerserver/public/files');
+
 
 module.exports = function(){
   const app = this;
 
+  const blobStorage = fs(app.get('files'));
   // Initialize our service with any options it requires
   app.use('/uploads', blobService({Model: blobStorage}));
 
