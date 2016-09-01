@@ -4,6 +4,7 @@
   "nedb": "../data/",
   "public": "../public/",
   "files": "../public/files",
+  "logs": "../src/iisnode/",
   "auth": {
     "token": {
       "secret": "9e8M+vG0mXO9XbhDIas0Obkoy9nq06ack/7a6Fuuda4lb36kMoMyniz1MhymCvkaRSadNLnObzOAPCs2EYOIaw=="
