@@ -7,9 +7,11 @@ module.exports = function(app) {
   app.logger = winston;
 
   return function(error, req, res, next) {
+    console.log('this is the loggers');
+    console.log('and the error', error);
     if (error) {
       const message = `${error.code ? `(${error.code}) ` : '' }Route: ${req.url} - ${error.message}`;
-      
+
       if (error.code === 404) {
         winston.info(message);
       }
