@@ -15,6 +15,4 @@ module.exports = function() {
   app.post('/signup', signup(app));
   app.use(notFound());
   app.use(logger(app))
-  app.use(handler());
-
-};
+  };
