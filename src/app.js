@@ -13,6 +13,7 @@ const bodyParser = require('body-parser');
 const socketio = require('feathers-socketio');
 const middleware = require('./middleware');
 const services = require('./services');
+const error = require('feathers-errors/handler');
 
 const app = feathers();
 
@@ -22,7 +23,10 @@ app.use(compress())
   .options('*', cors())
   .use(cors())
   .use(favicon( path.join(app.get('public'), 'favicon.ico') ))
-  .use('/files', serveStatic( app.get('files') ))
+  .use('/files', serveStatic( app.get('files')))
+  .use('/logs', serveStatic( app.get('logs') ),function(req,res,next){
+      app.myVar = req.get('host');
+      next();})
   .use('/', serveStatic( app.get('public') ),function(req,res,next){
       app.myVar = req.get('host');
       next();})
