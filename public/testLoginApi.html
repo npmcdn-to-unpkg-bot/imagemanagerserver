@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Feathersjs File Upload</title>
+        <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js"></script>
+        <script type="text/javascript" src="//npmcdn.com/feathers-client@^1.0.0/dist/feathers.js"></script>
+        <script type="text/javascript">
+           
+		    var host = 'http://localhost:3030';
+
+			// Set up Feathers client side
+			var app = feathers()
+				//.configure(feathers.rest(host).jquery(jQuery))
+				.configure(feathers.rest('').jquery(jQuery))
+				.configure(feathers.hooks())
+				.configure(feathers.authentication({ storage: window.localStorage }));
+
+			  // Authenticate. Normally you'd grab these from a login form rather than hard coding them
+			app.authenticate({
+				type: 'local',
+				'email': 'ionut.mandra@dotnetwise.com',
+				'password': 'test'
+			  }).then(function(result){
+				console.log('Authenticated!', app.get('token'));
+			  }).catch(function(error){
+				console.error('Error authenticating!', error);
+			  });
+		   
+            $(document).ready(function(){
+              
+				$('input#testLogin').click(function(){
+					console.log('login click');
+				});
+            });
+
+           
+        </script>
+    </head>
+    <body>
+        <h1>Let's login some users!</h1>
+        
+		
+		<input type="button" id="testLogin" value="testLogin" />
+    </body>
+</html>
